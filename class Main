@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+    
+        DataFetcher dataFetcher = new CachedDataFetcher(new DataFetcher() {
+            @Override
+            public List<Object> fetchData() {
+                
+                List<Object> data = Arrays.asList("Data 1", "Data 2", "Data 3");
+                return data;
+            }
+        }, new DataCache());
+       
+        List<Object> fetchedData = dataFetcher.fetchData();
+        System.out.println("Fetched data: " + fetchedData);
+        
+        List<Object> cachedData = dataFetcher.fetchData();
+        System.out.println("Cached data: " + cachedData);
+    }
+}
