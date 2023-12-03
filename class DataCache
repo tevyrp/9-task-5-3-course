@@ -1,0 +1,11 @@
+public class DataCache {
+    private Map<String, Object> cache = new HashMap<>();
+
+    public void addData(String key, Object data) {
+        cache.put(key, data);
+    }
+
+    public Object getData(String key) {
+        return cache.get(key);
+    }
+}
